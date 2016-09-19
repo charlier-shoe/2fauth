@@ -15,7 +15,30 @@
         <!-- RequireJS configuration file -->
         <script data-main="js/main" src="js/libs/require/require.js"></script>
     </head>
+
     <body>
-        <div id="content" data-bind="ojModule: 'content'" />
+        <div id="globalBody">
+            <div id='toolbar-container'>
+                <div id="myToolbar" aria-label="Editing Toolbar" aria-controls="controlled" data-bind="ojComponent: {component:'ojToolbar'}, css:toolbarClasses">
+                    <button id="menuButton" data-bind="ojComponent: {component: 'ojButton', label: 'Menu Button', menu: '#myMenu'}"></button>
+                    <ul id="myMenu" style="display:none" data-bind="ojComponent: {component: 'ojMenu'}">
+                        <li id="save">
+                            <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-palette-icon-24"></span>Save</a>
+                        </li>
+                        <li id="zoomin">
+                            <a href="#"><span class="oj-menu-item-icon oj-fwk-icon oj-fwk-icon-arrow-n"></span>Zoom In</a>
+                        </li>
+                        <li id="zoomout">
+                            <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-bookmark-icon-16"></span>Zoom Out</a>
+                        </li>
+                        <li id="print" class="oj-disabled">
+                            <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-chat-icon-24"></span>Print...</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- main content -->
+            <div id="content" data-bind="ojModule: 'content'" />
+        </div>
     </body>
 </html>

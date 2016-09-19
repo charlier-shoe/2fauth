@@ -24,13 +24,13 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule'],
+require(['jquery', 'knockout', 'ojs/ojbutton', 'ojs/ojknockout', 'ojs/ojmenu', 'ojs/ojmodule', 'ojs/ojtoolbar'],
 function($, ko)
 {
     $(document).ready(
         function()
         {
-            ko.applyBindings(null, document.getElementById('content'));
+            ko.applyBindings(null, document.getElementById('globalBody'));
         }
     );
 });
