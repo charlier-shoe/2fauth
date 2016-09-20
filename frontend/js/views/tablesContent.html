@@ -1,0 +1,55 @@
+<!--
+ Copyright (c) 2014, 2016, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<!-- Template to display a table -->
+<script type="text/html" id="table-template">
+   <br>
+   <h3>Select a row to display the record.</h3>
+   <table id="dataGrid" data-bind="ojComponent: { component: 'ojTable',
+                                                  data: table().getDataSource(), 
+                                                  columnsDefault: {sortable: 'none'}, 
+                                                  selectionMode: {row: 'single', column:'multiple'}, 
+                                                  columns: table().getColumns() }">
+   </table>
+</script>
+
+<!-- Template to display a record -->
+<script type="text/html" id="record-template">
+   <br>
+   <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline" id="form-container"  data-bind="with: record">  
+      <!-- ko foreach: $parent.table().getColumns() -->
+      <div class="oj-flex">  
+         <div class="oj-flex-item">
+            <label data-bind="text: headerText, attr: {for: field}"></label>
+         </div>
+         <div class="oj-flex-item">
+            <input data-bind="attr: {id: field}, ojComponent: { component: 'ojInputText', 
+                                                                    value: $parent[field]}"></input>
+         </div>
+      </div>
+      <!-- /ko -->
+   </div>
+</script>
+
+<div id="dataContent" class="oj-flex oj-flex-items-pad">
+   <div class="oj-xl-2 oj-lg-2 oj-md-2 oj-sm-12 oj-flex-item">
+      <br>
+      <h2>Select a table:</h2>
+      <div id="menu" data-bind="ojComponent:{ component: 'ojNavigationList', 
+                                              selection: router.stateId(),
+                                              beforeSelect: selectHandler,
+                                              drillMode: 'none' }">
+         <ul data-bind="foreach: router.states">
+            <li data-bind="attr: {id: id}">
+               <a data-bind="text: label"></a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="oj-xl-10 oj-lg-10 oj-md-10 oj-sm-12 oj-flex-item" data-bind="if: table()">
+      <div role="main" class="demo-page-content-area" data-bind="template: { name: displayMode,  
+                                                                             afterRender: afterTemplate }">
+      </div>
+   </div>
+</div>

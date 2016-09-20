@@ -1,44 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <title>Oracle JET/MCS Sample </title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
+   <head>
+      <title>Oracle JET Samples - Home</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- This is the main css file for the default Alta theme -->
-        <!-- injector:theme -->
-        <link rel="stylesheet" href="css/libs/oj/v2.1.0/alta/oj-alta-min.css" type="text/css"/>
-        <!-- endinjector -->
-        <!-- This is where you would add any app specific styling -->
-        <link rel="stylesheet" href="css/override.css" type="text/css"/>
-        <!-- RequireJS configuration file -->
-        <script data-main="js/main" src="js/libs/require/require.js"></script>
-    </head>
+      <!-- This is the main css file for the default Alta theme -->
+      <link rel="stylesheet" href="css/libs/oj/v2.1.0/alta/oj-alta-min.css" type="text/css"/>
 
-    <body>
-        <div id="globalBody">
-            <div id='toolbar-container'>
-                <div id="myToolbar" aria-label="Editing Toolbar" aria-controls="controlled" data-bind="ojComponent: {component:'ojToolbar'}, css:toolbarClasses">
-                    <button id="menuButton" data-bind="ojComponent: {component: 'ojButton', label: 'Menu Button', menu: '#myMenu'}"></button>
-                    <ul id="myMenu" style="display:none" data-bind="ojComponent: {component: 'ojMenu'}">
-                        <li id="save">
-                            <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-palette-icon-24"></span>Save</a>
-                        </li>
-                        <li id="zoomin">
-                            <a href="#"><span class="oj-menu-item-icon oj-fwk-icon oj-fwk-icon-arrow-n"></span>Zoom In</a>
-                        </li>
-                        <li id="zoomout">
-                            <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-bookmark-icon-16"></span>Zoom Out</a>
-                        </li>
-                        <li id="print" class="oj-disabled">
-                            <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-chat-icon-24"></span>Print...</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- main content -->
-            <div id="content" data-bind="ojModule: 'content'" />
-        </div>
-    </body>
+      <!-- This is where you would add any app specific styling -->
+      <link rel="stylesheet" href="css/override.css" type="text/css"/>
+
+      <!-- RequireJS bootstrap file -->
+      <script data-main="js/main" src="js/libs/require/require.js"></script>
+   </head>
+   <body>
+      <div id="globalBody" style="display: none">
+
+         <!-- header -->
+         <header id="headerWrapper" role="banner" data-bind="ojModule: 'header'"></header>
+
+         <!-- mainContent -->
+         <div id="mainContainer" data-bind="ojModule: router.moduleConfig"></div>
+      </div>
+   </body>
 </html>

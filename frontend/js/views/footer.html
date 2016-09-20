@@ -1,0 +1,14 @@
+<!--
+ Copyright (c) 2014, 2016, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="demo-appfooter">
+   <div class="oj-flex oj-flex-items-pad">
+      <ul>
+         <!-- ko foreach: footerLinks -->
+         <li> <a data-bind="text : name, attr : {id: linkId, href : linkTarget}"> </a> </li>
+         <!-- /ko -->
+      </ul> 
+   </div>
+    <div class="oj-flex oj-flex-items-pad demo-appfooter-text">Copyright &copy; 2015, 2016 Oracle and/or its affiliates. All rights reserved. Oracle JET <span data-bind="text: ojVersion"></span></div>
+</div>

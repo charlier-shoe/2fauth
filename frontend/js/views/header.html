@@ -1,0 +1,40 @@
+<!--
+ Copyright (c) 2014, 2016, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="demo-appheader">
+   <div class="oj-flex oj-flex-items-pad demo-appheader-lite">
+
+      <!-- logo -->  
+      <div class="demo-appheader-logo oj-flex-item" tabindex="0">
+         <div class="demo-appheader-logo-block">
+            <span role="img" class="oj-icon demo-appheader-lite-logo-oracle" title="Oracle Logo" alt="Oracle Logo"></span>  
+         </div>
+
+         <div class="demo-appheader-appname-block">
+            <span style="" class="demo-appheader-appname" data-bind="text: appName"></span>
+         </div>
+      </div>
+
+      <!-- Toolbar -->  
+      <div id='demo-appheader-menu-and-toolbar-container' class="oj-flex-item" tabindex="0">
+
+         <div class="demo-appheader-toolbar-container">
+            <div class="demo-appheader-toolbar oj-toolbar-half-chrome" aria-controls="player"
+                 data-bind="ojComponent: {component:'ojToolbar'}">
+               <div class="oj-button-half-chrome demo-appheader-toolbar-button"
+                    data-bind="ojComponent: { component: 'ojButtonset',
+                                              checked: $root.router.stateId(),
+                                              focusManagement: 'none'}">
+                  <!-- ko foreach: $root.router.states -->
+                  <label data-bind="attr: {for: id}"></label>
+                  <input type="radio" name="view" 
+                         data-bind="value: id, click: go, attr: {id: id}, 
+                                    ojComponent: {component: 'ojButton', label: label}"/>
+                  <!-- /ko -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>            
