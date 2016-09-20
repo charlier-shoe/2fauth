@@ -1,12 +1,12 @@
 define(['ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojinputtext'],
 function(oj, ko, $)
 {
-    function contentViewModel()
+    function preferenceViewModel()
     {
         var self = this;
         this.value = ko.observable("Default Text");
     }
 
-    return new contentViewModel();
+    return new preferenceViewModel();
 }
 );

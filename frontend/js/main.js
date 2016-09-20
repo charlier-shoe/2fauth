@@ -21,9 +21,6 @@ requirejs.config({
    shim: {
       'jquery': {
          exports: ['jQuery', '$']
-      },
-      'jqueryui': {
-         deps: ['jquery']
       }
    }
 });
@@ -34,9 +31,8 @@ function(oj, ko, $)
     var router = oj.Router.rootInstance;
 
     router.configure({
-        'home':   { label: 'Home',   value: 'homeContent', isDefault: true },
-        'book':   { label: 'Book',   value: 'bookContent' },
-        'tables': { label: 'Tables', value: 'tablesContent' }
+        'home':       { label: 'Home',       value: 'home',      isDefault: true },
+        'preference': { label: 'Preference', value: 'preference' }
     });
 
     var viewModel = {

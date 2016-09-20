@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-us">
-   <head>
-      <title>Oracle JET Samples - Home</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>2fauth Sample</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- This is the main css file for the default Alta theme -->
-      <link rel="stylesheet" href="css/libs/oj/v2.1.0/alta/oj-alta-min.css" type="text/css"/>
+        <!-- This is the main css file for the default Alta theme -->
+        <link rel="stylesheet" href="css/libs/oj/v2.1.0/alta/oj-alta-min.css" type="text/css"/>
 
-      <!-- This is where you would add any app specific styling -->
-      <link rel="stylesheet" href="css/override.css" type="text/css"/>
+        <!-- This is where you would add any app specific styling -->
+        <link rel="stylesheet" href="css/override.css" type="text/css"/>
 
-      <!-- RequireJS bootstrap file -->
-      <script data-main="js/main" src="js/libs/require/require.js"></script>
-   </head>
-   <body>
-      <div id="globalBody" style="display: none">
+        <!-- RequireJS bootstrap file -->
+        <script data-main="js/main" src="js/libs/require/require.js"></script>
+    </head>
+    <body>
+        <div id="globalBody" style="display: none">
+            <!-- header -->
+            <header id="header" data-bind="ojModule: 'header'"></header>
 
-         <!-- header -->
-         <header id="headerWrapper" role="banner" data-bind="ojModule: 'header'"></header>
-
-         <!-- mainContent -->
-         <div id="mainContainer" data-bind="ojModule: router.moduleConfig"></div>
-      </div>
-   </body>
+            <!-- mainContent -->
+            <div id="mainContainer" data-bind="ojModule: router.moduleConfig"></div>
+        </div>
+    </body>
 </html>
