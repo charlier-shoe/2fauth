@@ -4,7 +4,7 @@
         <span data-bind="text: appName"></span>
     </div>
     <!-- Toolbar -->
-    <div id='toolbar' class="oj-flex-item" tabindex="0">
+    <div class="oj-flex-item oj-sm-flex-initial" tabindex="0">
         <div data-bind="ojComponent: {component:'ojToolbar'}">
             <div data-bind="ojComponent: {component: 'ojButtonset', checked: $root.router.stateId(), focusManagement: 'none'}">
                 <!-- ko foreach: $root.router.states -->
