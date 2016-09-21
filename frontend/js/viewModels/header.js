@@ -1,4 +1,4 @@
-define(['knockout', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojtoolbar'],
+define(['knockout', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojmenu', 'ojs/ojtoolbar'],
 function(ko)
 {
     function viewModel() {
