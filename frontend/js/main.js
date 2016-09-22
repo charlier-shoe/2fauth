@@ -25,31 +25,25 @@ requirejs.config({
    }
 });
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojmodule', 'ojs/ojrouter', 'text'],
+require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojbutton', 'ojs/ojknockout', 'ojs/ojmenu', 'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojtoolbar', 'text'],
 function(oj, ko, $)
 {
+    oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
     var router = oj.Router.rootInstance;
-
     router.configure({
-        'home':       { label: 'Home',       value: 'home',      isDefault: true },
-        'preference': { label: 'Preference', value: 'preference' }
+        'Home':       { label: 'Home',       value: 'home',      isDefault: true },
+        'Preference': { label: 'Preference', value: 'preference' }
     });
 
     function viewModel() {
         var self = this;
+        self.appName = '2fauth Sample';
+
         self.router = router;
-        self.optionChangeHandler = function(evnet, data) {
-            if (data.value === undefined) {
-                data.value = 'home';
-            }
-            // Only go for user action events
-            if (('ojAppNav2' === event.target.id) && event.originalEvent) {
-                self.router.go(data.value);
-            }
+        self.selectMenuItem = function(event, ui) {
+            self.router.go(ui.item.children("a").text());
         }
     };
-
-    oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
     oj.Router.sync().then(
         function() {
