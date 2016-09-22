@@ -35,9 +35,21 @@ function(oj, ko, $)
         'preference': { label: 'Preference', value: 'preference' }
     });
 
-    var viewModel = {
-        router: router
+    function viewModel() {
+        var self = this;
+        self.router = router;
+        self.optionChangeHandler = function(evnet, data) {
+            if (data.value === undefined) {
+                data.value = 'home';
+            }
+            // Only go for user action events
+            if (('ojAppNav2' === event.target.id) && event.originalEvent) {
+                self.router.go(data.value);
+            }
+        }
     };
+
+    oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
     oj.Router.sync().then(
         function() {

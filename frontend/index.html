@@ -20,7 +20,10 @@
             <header id="header" data-bind="ojModule: 'header'"></header>
 
             <!-- mainContent -->
+            <!--
             <div id="mainContainer" data-bind="ojModule: router.moduleConfig"></div>
+            -->
+            <div id="mainContainer" data-bind="ojModule: {name: router.stateId()}"></div>
         </div>
     </body>
 </html>
