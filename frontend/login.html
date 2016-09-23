@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>2fauth Sample</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- This is the main css file for the default Alta theme -->
+        <link rel="stylesheet" href="css/libs/oj/v2.1.0/alta/oj-alta-min.css" type="text/css"/>
+
+        <!-- This is where you would add any app specific styling -->
+        <link rel="stylesheet" href="css/override.css" type="text/css"/>
+
+        <!-- RequireJS bootstrap file -->
+        <script data-main="js/login" src="js/libs/require/require.js"></script>
+    </head>
+    <body>
+        <div id="loginBody">
+            <div class="oj-flex oj-sm-justify-content-center" style="padding-top: 120px;">
+                <div id="login" class="oj-panel" style="padding: 40px">
+                    <h2>Sign In to Your Account.</h2>
+                    <div class="oj-form-layout">
+                        <div class="oj-form">
+                            <div class="oj-flex">
+                                <div class="oj-flex-item">
+                                    <label for="username">Email Address</label>
+                                    <input id="username" data-bind="ojComponent: {component: 'ojInputText', value: username}"/>
+                                </div>
+                            </div>
+                            <div class="oj-flex">
+                                <div class="oj-flex-item">
+                                    <label for="password">Password</label>
+                                    <input id="password" data-bind="ojComponent: {component: 'ojInputPassword', value: password }"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oj-margin-top">
+                        <button data-bind="click: login, ojComponent: {component: 'ojButton', label: 'Login'}"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
