@@ -36,11 +36,10 @@ function(oj, ko, $, mbe)
 
         self.login = function(data, event) {
             mbe.login(self.username(), self.password(),
-                function (statusCode, message) {
-                    console.log(message);
+                function(statusCode, message) {
                     location.href = "./index.html";
                 },
-                function (statusCode, message) {
+                function(statusCode, message) {
                     alert('Invalid Credentials');
                 }
             );

@@ -33,12 +33,31 @@ function()
         }
 
         // login
-        self.login = function (username, password, success, failure) {
+        self.login = function(username, password, success, failure) {
             self.mbe.Authorization.authenticate(username, password, success, failure);
         };
 
+        // get current user
+        self.currentUser = function() {
+            self.mbe.Authorization.getCurrentUser(
+                function(statusCode, user) {
+                    alert(user.getEmail());
+                },
+                function(statusCode, user) {
+                }
+            );
+        }
+
+        self.getAccessToken = function() {
+            self.mbe.Authorization.getAccessToken();
+        }
+
+        self.isAuthorized = function() {
+            self.mbe.Authorization.isAuthorized();
+        }
+
         // logout
-        self.logout = function () {
+        self.logout = function() {
             self.mbe.Authorization.logout();
         };
 
