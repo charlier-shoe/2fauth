@@ -22,48 +22,9 @@ function()
         }
     };
 
-    function MobileBackend() {
-        var self = this;
-        self.mbe;
-
-        function init() {
-            mcs.MobileBackendManager.setConfig(mcs_config);
-            self.mbe = mcs.MobileBackendManager.getMobileBackend('2fauth');
-            self.mbe.setAuthenticationType('basicAuth');
-        }
-
-        // login
-        self.login = function(username, password, success, failure) {
-            self.mbe.Authorization.authenticate(username, password, success, failure);
-        };
-
-        // get current user
-        self.currentUser = function() {
-            self.mbe.Authorization.getCurrentUser(
-                function(statusCode, user) {
-                    alert(user.getEmail());
-                },
-                function(statusCode, user) {
-                }
-            );
-        }
-
-        self.getAccessToken = function() {
-            self.mbe.Authorization.getAccessToken();
-        }
-
-        self.isAuthorized = function() {
-            self.mbe.Authorization.isAuthorized();
-        }
-
-        // logout
-        self.logout = function() {
-            self.mbe.Authorization.logout();
-        };
-
-        init();
-    }
-
-    return new MobileBackend();
+    mcs.MobileBackendManager.setConfig(mcs_config);
+    var mbe = mcs.MobileBackendManager.getMobileBackend('FIF_Technician_xx');
+    mbe.setAuthenticationType('basicAuth');
+    return mbe;
 }
 );
