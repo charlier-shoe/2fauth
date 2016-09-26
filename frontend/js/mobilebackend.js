@@ -21,10 +21,39 @@ function()
             }
         }
     };
-
     mcs.MobileBackendManager.setConfig(mcs_config);
-    var mbe = mcs.MobileBackendManager.getMobileBackend('FIF_Technician_xx');
-    mbe.setAuthenticationType('basicAuth');
-    return mbe;
+    var mbe = mcs.MobileBackendManager.getMobileBackend('2fauth');
+    mbe.setAuthenticationType('oAuth');
+
+    function MobileBackend() {
+        // define members
+    }
+
+    MobileBackend.prototype.authenticate = function(username, password, success, error) {
+        mbe.Authorization.authenticate(username, password,
+                function(statusCode, message) {
+                    sessionStorage.setItem('token', mbe.Authorization.getAccessToken());
+                    success(statusCode, message);
+                },
+                function() {
+                    error(statusCode, message);
+                }
+        );
+    };
+
+    MobileBackend.prototype.getCurrentUser = function(success, error) {
+        // handle exceptional case
+        mbe.Authorization.setAccessToken(sessionStorage.getItem('token'));
+        mbe.Authorization.getCurrentUser(
+                function(statusCode, user) {
+                    success(statusCode, user);
+                },
+                function(statusCode, user) {
+                    error(statusCode, user);
+                }
+        );
+    }
+
+    return new MobileBackend();
 }
 );

@@ -35,7 +35,7 @@ function(oj, ko, $, mbe)
         self.password = ko.observable();
 
         self.login = function(data, event) {
-            mbe.Authorization.authenticate(self.username(), self.password(),
+            mbe.authenticate(self.username(), self.password(),
                 function(statusCode, message) {
                     location.href = "./index.html";
                 },

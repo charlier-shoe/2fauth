@@ -13,7 +13,8 @@ requirejs.config({
         'ojL10n': 'libs/oj/v2.1.0/ojL10n',
         'ojtranslations': 'libs/oj/v2.1.0/resources',
         'signals': 'libs/js-signals/signals',
-        'text': 'libs/require/text'
+        'text': 'libs/require/text',
+        'mcs': 'libs/mcs/mcs'
     }
     //endinjector
     ,
@@ -25,8 +26,8 @@ requirejs.config({
     }
 });
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojbutton', 'ojs/ojknockout', 'ojs/ojmenu', 'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojtoolbar', 'text'],
-function(oj, ko, $)
+require(['ojs/ojcore', 'knockout', 'jquery', 'mobilebackend', 'ojs/ojbutton', 'ojs/ojknockout', 'ojs/ojmenu', 'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojtoolbar', 'text'],
+function(oj, ko, $, mbe)
 {
     oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
     var router = oj.Router.rootInstance;
@@ -49,6 +50,12 @@ function(oj, ko, $)
         function() {
             ko.applyBindings(viewModel);
             $('#globalBody').show();
+            mbe.getCurrentUser(
+                    function(statusCode, user) {
+                        console.log(user.getEmail());
+                    },
+                    function(statusCode, user) {}
+            );
         },
         function(error) {
             oj.Logger.error('Error when starting router: ' + error.message);
