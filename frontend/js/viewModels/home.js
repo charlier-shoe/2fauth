@@ -1,13 +1,13 @@
 define(['knockout', 'ojs/ojknockout', 'ojs/ojbutton'],
 function(ko)
 {
-   return {
-      title: 'Welcome to the JET Router demo',
-      description: [{
-         line: 'This application demonstrate how the Jet Router library can simplify building large application.'
-      }, {
-         line: 'This is a single page application made of 3 independent components: Home, Book and Tables. You are currently looking at the Home component.'
-      }]
-   };
+    return {
+        title: 'Welcome to the 2 factor authentication on MCS demo',
+        description: [{
+            line: 'This application demonstrate 2 factor autentication implemented on Oracle Mobile Cloud Service(backend server).'
+        }, {
+            line: 'Place application contents here.'
+        }]
+    };
 }
 );
