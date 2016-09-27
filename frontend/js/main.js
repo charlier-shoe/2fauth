@@ -33,7 +33,8 @@ function(oj, ko, $, mbe)
     var router = oj.Router.rootInstance;
     router.configure({
         'Home':       { label: 'Home',       value: 'home',      isDefault: true },
-        'Preference': { label: 'Preference', value: 'preference' }
+        'Preference': { label: 'Preference', value: 'preference' },
+        'Sign out':   { label: 'Sign out',   value: 'sign out' }
     });
 
     function viewModel() {
@@ -41,21 +42,30 @@ function(oj, ko, $, mbe)
         self.appName = '2fauth Sample';
 
         self.router = router;
+
         self.selectMenuItem = function(event, ui) {
-            self.router.go(ui.item.children("a").text());
+            var item = ui.item.children("a").text();
+            if (item == 'Sign out') {
+                mbe.logout();
+                location.href = "./login.html";
+            } else {
+                self.router.go(item);
+            }
         }
+
+        self.username = ko.observable();
+        mbe.getCurrentUser(
+                function(statusCode, user) {
+                    self.username(user.getEmail());
+                },
+                function(statusCode, user) {}
+        );
     };
 
     oj.Router.sync().then(
         function() {
             ko.applyBindings(viewModel);
             $('#globalBody').show();
-            mbe.getCurrentUser(
-                    function(statusCode, user) {
-                        console.log(user.getEmail());
-                    },
-                    function(statusCode, user) {}
-            );
         },
         function(error) {
             oj.Logger.error('Error when starting router: ' + error.message);

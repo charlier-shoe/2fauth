@@ -54,6 +54,21 @@ function()
         );
     }
 
+    MobileBackend.prototype.isAuthorized = function(success, error) {
+        var token = sessionStorage.getItem('token');
+        if (!token) {
+            return false;
+        }
+        mbe.Authorization.setAccessToken(token);
+        return mbe.Authorization.isAuthorized();
+    }
+
+    MobileBackend.prototype.logout = function() {
+        // handle exceptional case
+        mbe.Authorization.logout();
+        sessionStorage.removeItem('token');
+    }
+
     return new MobileBackend();
 }
 );

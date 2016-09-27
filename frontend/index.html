@@ -26,13 +26,18 @@
                 <!-- Toolbar -->
                 <div class="oj-flex-item oj-sm-flex-initial" tabindex="0">
                     <div data-bind="ojComponent: {component:'ojToolbar'}">
-                        <button id="menuButton" data-bind="ojComponent: {component: 'ojButton', label: 'Menu Button', menu: '#menuItems'}"></button>
+                        <label for="menuButton" data-bind="text: username"></label>
+                        <button id="menuButton" data-bind="ojComponent: {component: 'ojButton', menu: '#menuItems'}"></button>
                         <ul id="menuItems" data-bind="ojComponent: {component: 'ojMenu', select: selectMenuItem}">
                             <li id="home">
-                                <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-icon-font demo-home-icon-24"></span>Home</a>
+                                <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-home-icon-24"></span>Home</a>
                             </li>
                             <li id="preference">
-                                <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-grid-icon-16"></span>Preference</a>
+                                <a href="#"><span class="oj-menu-item-icon demo-icon-font demo-gear-icon-16"></span>Preference</a>
+                            </li>
+                            <li id="divider"></li>
+                            <li id="sign out">
+                                <a href="#">Sign out</a>
                             </li>
                         </ul>
                     </div>

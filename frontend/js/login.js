@@ -29,6 +29,10 @@ requirejs.config({
 require(['ojs/ojcore', 'knockout', 'jquery', 'mobilebackend', 'ojs/ojbutton', 'ojs/ojinputtext', 'ojs/ojknockout'],
 function(oj, ko, $, mbe)
 {
+    if (mbe.isAuthorized()) {
+        location.href = "./index.html";
+    }
+
     function loginViewModel() {
         var self = this;
         self.username = ko.observable();
