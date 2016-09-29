@@ -29,6 +29,10 @@ requirejs.config({
 require(['ojs/ojcore', 'knockout', 'jquery', 'mobilebackend', 'ojs/ojbutton', 'ojs/ojknockout', 'ojs/ojmenu', 'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojtoolbar', 'text'],
 function(oj, ko, $, mbe)
 {
+    if (!mbe.isAuthorized()) {
+        location.href = "./login.html";
+    }
+
     oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
     var router = oj.Router.rootInstance;
     router.configure({
